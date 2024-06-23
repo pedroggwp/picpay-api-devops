@@ -1,4 +1,4 @@
-name: API PicPay Workflow Maven - DEV
+name: API PicPay Workflow Maven - DEV 
 
 on:
   push:
