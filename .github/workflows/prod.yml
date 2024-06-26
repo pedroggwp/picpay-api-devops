@@ -24,3 +24,17 @@ jobs:
 
     - name: verify branch
       run: echo "to na branch PROD"
+      
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.7.1
+      
+    - name: Docker Build & Push Action
+      uses: mr-smithers-excellent/docker-build-push@v6.4
+      with:
+          image: pedrosilvanascimento/picpay-api-workflow
+          tags: ${{ steps.version.outputs.previous-version }}
+          registry: docker.io
+          dockerfile: Dockerfile
+          username: ${{secrets.USERNAME}}
+          password: ${{secrets.PASSWORD}}
