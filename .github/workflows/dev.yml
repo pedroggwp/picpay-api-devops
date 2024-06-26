@@ -22,3 +22,10 @@ jobs:
 
     - name: verify branch
       run: echo "to na branch dev"
+      
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.7.1
+
+    - name: verify version
+      run: echo DEV-1${{ github.run_number }}
