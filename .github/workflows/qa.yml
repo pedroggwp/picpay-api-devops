@@ -23,4 +23,11 @@ jobs:
       run: mvn -B package --file pom.xml
 
     - name: verify branch
-      run: echo "to na branch QA"
+      run: echo "to na branch qa"
+      
+    - name: Git Version
+      id: version
+      uses: codacy/git-version@2.7.1
+
+    - name: verify version
+      run: echo QA-1${{ github.run_number }}
