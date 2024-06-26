@@ -27,12 +27,5 @@ jobs:
       id: version
       uses: codacy/git-version@2.7.1
 
-    - name: Docker Build & Push Action
-      uses: mr-smithers-excellent/docker-build-push@v6.4
-      with:
-          image: pedrosilvanascimento/picpay-api-workflow
-          tags: ${{ github.run_number }}, ${{ steps.version.outputs.previous-version }}
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{secrets.USERNAME}}
-          password: ${{secrets.PASSWORD}}
+    - name: verify version
+      run: echo DEV-1${{ github.run_number }}
